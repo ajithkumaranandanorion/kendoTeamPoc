@@ -15,6 +15,12 @@ interface GridItem {
     extra3?: number;
     extra4?: number;
 }
+interface CollapseInfoProps {
+    field: keyof GridItem;
+    title: string;
+    width: number;
+    id: string | number;
+}
 
 interface ColumnConfig {
     field: keyof GridItem;
@@ -23,8 +29,9 @@ interface ColumnConfig {
     locked?: boolean;
     blue?: boolean;
     isCollapsible?: boolean;
-    collapseInfo?: (keyof GridItem)[];
+    collapseInfo?: CollapseInfoProps[];
 }
+
 
 export type { GridItem, ColumnConfig };
 

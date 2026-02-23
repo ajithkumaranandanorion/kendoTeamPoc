@@ -51,8 +51,7 @@ export default function EMTDropdown() {
 
     </div>
     {isShowSummary && <>
-      <div className='grid max-md:grid-cols-[10rem_minmax(28rem,1fr)_10rem] grid-cols-[minmax(1rem,10rem)_minmax(30rem,1fr)_minmax(28rem,1fr)_minmax(1rem,10rem)] 
-     gap-4 my-8 w-full'>
+      <div className='grid max-md:grid-cols-[10rem_minmax(28rem,1fr)_10rem] grid-cols-[minmax(1rem,10rem)_minmax(30rem,1fr)_minmax(28rem,1fr)_minmax(1rem,10rem)] gap-4 my-8 w-full'>
         <FilterComponent optionsData={optionsAudit} handleDropdown={handleAuditYear} selectedVal={auditYear} labelText={"Audit Year"} classNameField={"flex max-md:justify-center max-md:ml-0 justify-end col-start-2 mr-1 "} />
         <FilterComponent optionsData={optionsBusiness} handleDropdown={handleBusinessUnit} selectedVal={businessUnit} labelText={"Business Unit"} showSelect={true} classNameField={"flex max-md:col-start-2 max-md:justify-center max-md:ml-0 justify-start  col-start-3 ml-1 "} />
         <FilterComponent optionsData={optionsFiscal} handleDropdown={handleFiscalStatus} selectedVal={fiscalStatus} labelText={"Fiscal Year End Status"} classNameField={"flex max-md:justify-center max-md:ml-0 justify-end col-start-2 mr-1 "} />
@@ -60,12 +59,10 @@ export default function EMTDropdown() {
       </div>
       <div className='flex gap-2 m-2 justify-end'>
         <button className='flex items-center  gap-2  bg-gray-200  p-2 rounded-lg border-2 border-gray-300'><FaPlay />Run Report</button>
-        <button className='flex items-center  gap-2  bg-gray-200  p-2 rounded-lg border-2 border-gray-300 cursor-pointer bg-red-500 hover:text-white' onClick={handleAllClear}><AiOutlineStop />Clear Search</button>
+        <button className='flex items-center  gap-2  bg-gray-200  p-2 rounded-lg border-2 border-gray-300 cursor-pointer' onClick={handleAllClear}><AiOutlineStop />Clear Search</button>
       </div>
     </>
     }
   </div>
   )
 }
-
-

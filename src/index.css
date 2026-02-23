@@ -33,9 +33,9 @@
   color: #fff;
 }
 
-.k-grid-header th:first-child {
+/* .k-grid-header th:first-child {
   @apply h-[250px];
-}
+} */
 
 
 .k-grid-header-menu .k-svg-i-more-vertical,
