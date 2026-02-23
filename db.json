@@ -2,121 +2,130 @@
     "columns": {
         "base": [
             {
-                "field": "client",
+                "id": "client",
+                "field": "client",                
                 "title": "Client Name",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "projectCode",
                 "field": "projectCode",
                 "title": "Project Code",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "projectName",
                 "field": "projectName",
                 "title": "Project Name",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "opinion",
                 "field": "opinion",
                 "title": "Opinion",
                 "width": 155,
                 "locked": true
             },
             {
+                "id": "col1",
                 "field": "col1",
                 "title": "Col 1",
                 "width": 200,
                 "isCollapsible": true,
                 "collapseInfo": [
-                    "extra1",
-                    "extra2",
-                    "extra3",
-                    "extra4"
+                    {
+                        "id": "extra1",
+                        "field": "extra1",
+                        "title": "Extra 1",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra2",
+                        "field": "extra2",
+                        "title": "Extra 2",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra3",
+                        "field": "extra3",
+                        "title": "Extra 3",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra4",
+                        "field": "extra4",
+                        "title": "Extra 4",
+                        "width": 200
+                    }
                 ]
             },
             {
+                "id": "col2",
                 "field": "col2",
                 "title": "Col 2",
                 "width": 200
             },
             {
+                "id": "col3",
                 "field": "col3",
                 "title": "Col 3",
                 "isCollapsible": true,
                 "collapseInfo": [
-                    "extra5",
-                    "extra6",
-                    "extra7",
-                    "extra8"
+                    {
+                        "id": "extra5",
+                        "field": "extra5",
+                        "title": "Extra 5",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra6",
+                        "field": "extra6",
+                        "title": "Extra 6",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra7",
+                        "field": "extra7",
+                        "title": "Extra 7",
+                        "width": 200
+                    },
+                    {
+                        "id": "extra8",
+                        "field": "extra8",
+                        "title": "Extra 8",
+                        "width": 200
+                    }
                 ],
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col4",
                 "field": "col4",
                 "title": "Col 4",
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col5",
                 "field": "col5",
                 "title": "Col 5",
                 "width": 200,
                 "blue": true
             },
             {
+                "id": "col6",
                 "field": "col6",
                 "title": "Col 6",
                 "width": 200,
                 "blue": true
             }
-        ],
-        "extra": [
-            {
-                "field": "extra1",
-                "title": "Extra 1",
-                "width": 200
-            },
-            {
-                "field": "extra2",
-                "title": "Extra 2",
-                "width": 200
-            },
-            {
-                "field": "extra3",
-                "title": "Extra 3",
-                "width": 200
-            },
-            {
-                "field": "extra4",
-                "title": "Extra 4",
-                "width": 200
-            },
-            {
-                "field": "extra5",
-                "title": "Extra 5",
-                "width": 200
-            },
-            {
-                "field": "extra6",
-                "title": "Extra 6",
-                "width": 200
-            },
-            {
-                "field": "extra7",
-                "title": "Extra 7",
-                "width": 200
-            },
-            {
-                "field": "extra8",
-                "title": "Extra 8",
-                "width": 200
-            }
         ]
     },
+
     "gridData": [
         {
             "id": 1,

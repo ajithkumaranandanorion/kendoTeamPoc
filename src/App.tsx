@@ -1,7 +1,7 @@
 
 import './App.css'
 import KendoExpandableGrid from './component/KendoExpandableGrid'
-import { ExpandCollapseProvider } from './features/KendoContext'
+import { ExpandCollapseProvider } from './hooks/useKendoContext'
 
 function App() {
 

@@ -4,7 +4,7 @@ import type { GridCustomHeaderCellProps } from "@progress/kendo-react-grid";
 
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import IndeterminateCheckBoxOutlinedIcon from '@mui/icons-material/IndeterminateCheckBoxOutlined';
-import { useSelectedKendo } from "../../features/KendoContext";
+import { useSelectedKendo } from "../../hooks/useKendoContext";
 
 
 export function HeaderExpandCollapseCell(props: GridCustomHeaderCellProps) {

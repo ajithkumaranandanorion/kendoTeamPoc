@@ -3,7 +3,7 @@ import { GridColumn } from "@progress/kendo-react-grid";
 import type { ColumnConfig } from "../../models/grid.type";
 import { HeaderCustomCell } from "./CustomHeaders";
 import { HeaderExpandCollapseCell } from "./HeaderExpandCollapseCell";
-import { useSelectedKendo } from "../../features/KendoContext";
+import { useSelectedKendo } from "../../hooks/useKendoContext";
 
 function columns({ baseColumns, processedData }: { baseColumns: ColumnConfig[], processedData: any }) {
     const cols: React.ReactNode[] = [];

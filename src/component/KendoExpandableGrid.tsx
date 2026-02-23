@@ -134,7 +134,7 @@ const KendoExpandableGrid: React.FC = () => {
         filter={filter ?? undefined}
         scrollable="scrollable"
         resizable
-         selectable={false}
+        selectable={false}
         onPageChange={onPageChange}
         onSortChange={onSortChange}
         onFilterChange={onFilterChange}
