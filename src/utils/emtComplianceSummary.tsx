@@ -5,6 +5,7 @@ interface SummaryProps {
     content: string;
     splitText: string
 }
+
 export function emtComplianceSummary({ link, label = 'link', content = '', splitText = 'split text' }: SummaryProps) {
     const parts = content.split(splitText);
     return (

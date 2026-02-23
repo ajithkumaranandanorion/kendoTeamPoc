@@ -6,12 +6,10 @@ interface FilterProps {
     selectedVal: string | number | undefined;
     labelText: string;
     showSelect?: boolean;
-    classNameField?:string
+    classNameField?: string
 }
 
-export default function FilterComponent({ optionsData = [""], handleDropdown, selectedVal="", labelText = "Label", showSelect = false , classNameField="flex"}: FilterProps) {
-   console.log("selectedVal" , optionsData, selectedVal);
-   console.log("optionsData" , optionsData);
+export default function FilterComponent({ optionsData = [""], handleDropdown, selectedVal = "", labelText = "Label", showSelect = false, classNameField = "flex" }: FilterProps) {
     return (
         <><div className={classNameField}>
             <p className="p-2 border-2 border-black/20 w-[20rem] rounded-lg min-w-[5rem] font-semibold">{labelText}</p>
