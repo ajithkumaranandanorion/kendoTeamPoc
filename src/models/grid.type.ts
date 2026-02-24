@@ -28,6 +28,7 @@ interface ColumnConfig {
     width: number;
     locked?: boolean;
     blue?: boolean;
+    orange?:boolean;
     isCollapsible?: boolean;
     collapseInfo?: CollapseInfoProps[];
 }

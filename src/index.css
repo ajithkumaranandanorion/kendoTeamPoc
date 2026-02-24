@@ -20,9 +20,11 @@
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -33,10 +35,19 @@
   color: #fff;
 }
 
-/* .k-grid-header th:first-child {
-  @apply h-[250px];
-} */
+.orange-header {
+  background: linear-gradient(#db6217, #d6a82a);
+  color: #fff;
+}
 
+.blue-header-extra {
+  background: linear-gradient(#f1b3b3, #f0925f);
+  color: #fff;
+}
+
+.k-cell-inner>.k-link {
+  cursor: auto !important;
+}
 
 .k-grid-header-menu .k-svg-i-more-vertical,
 .k-grid-header-menu svg {
@@ -48,10 +59,10 @@
   width: 14px;
   height: 14px;
   display: inline-block;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23555' d='M3 5h18l-7 8v6l-4-2v-4z'/%3E%3C/svg%3E")
-    no-repeat center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23555' d='M3 5h18l-7 8v6l-4-2v-4z'/%3E%3C/svg%3E") no-repeat center;
   background-size: 14px 14px;
 }
+
 .k-grid-header-menu {
   margin-left: 6px;
   padding: 0;
@@ -62,7 +73,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .k-columnmenu-item {
   display: none !important
 }
-

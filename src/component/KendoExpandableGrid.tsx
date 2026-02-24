@@ -10,16 +10,11 @@ import { Loader } from '@progress/kendo-react-indicators';
 
 import type { GridItem, ColumnConfig } from '../models/grid.type';
 import { CustomToolbar } from './CustomGridToolbar';
-// import { YellowRowWithPlus } from './CollapsibleHeader';
-// import { EmptyAlignedRow } from './EmptyAlignedRow';
-// import { CustomColumnMenu } from './CustomColumnMenu';
 
 import { fetchColumnConfig } from '../api/columnApi';
 import { useKendoGridData } from '../hooks/useKendoGridData';
 import EMTDropdown from '../pages/EMTDropdown';
-// import { HeaderThElement } from '@progress/kendo-react-data-tools';
 import { columns } from './internal/ColumnCell';
-
 
 const KendoExpandableGrid: React.FC = () => {
   /* ---------- grid data (HOOK) ---------- */
@@ -29,13 +24,11 @@ const KendoExpandableGrid: React.FC = () => {
     loading,
     pageState,
     setPageState,
-    // fetchExtraDataIfNeeded
   } = useKendoGridData();
 
   /* ---------- UI-only state ---------- */
   const [sort, setSort] = useState<SortDescriptor[]>([]);
   const [filter, setFilter] = useState<CompositeFilterDescriptor | null>(null);
-  // const [expandedMap, setExpandedMap] = useState<Record<string, boolean>>({});
   const [baseColumns, setBaseColumns] = useState<ColumnConfig[]>([]);
 
   /* ---------- fetch column config ---------- */
@@ -53,7 +46,7 @@ const KendoExpandableGrid: React.FC = () => {
       active = false;
     };
   }, []);
-  
+
 
   /* ---------- handlers ---------- */
   const onPageChange = useCallback((e: GridPageChangeEvent) => {
@@ -71,25 +64,6 @@ const KendoExpandableGrid: React.FC = () => {
     setFilter(e.filter);
   }, []);
 
-  // const toggleColumn = useCallback(
-  //   async (field: string) => {
-  //     setExpandedMap(prev => {
-  //       const willExpand = !prev[field];
-
-  //       if (willExpand) {
-  //         fetchExtraDataIfNeeded(); // fire & forget
-  //       }
-
-  //       return {
-  //         ...prev,
-  //         [field]: willExpand
-  //       };
-  //     });
-  //   },
-  //   [fetchExtraDataIfNeeded]
-  // );
-
-
   /* ---------- client-side sort + filter ---------- */
   const processedData = useMemo(() => {
     return process(data, {
@@ -100,21 +74,13 @@ const KendoExpandableGrid: React.FC = () => {
 
   /* ---------- columns ---------- */
 
-  const columnsData= columns({baseColumns,processedData});
+  const columnsData = columns({ baseColumns, processedData });
 
   /* ---------- render ---------- */
   return (
     <div className="grid-page w-full h-screen flex flex-col relative ">
       <EMTDropdown />
       <CustomToolbar />
-
-      {/* <YellowRowWithPlus
-        expandedMap={expandedMap}
-        onToggle={toggleColumn}
-        baseColumns={baseColumns}
-      /> */}
-
-      {/* <EmptyAlignedRow baseColumns={baseColumns} /> */}
 
       {loading && (
         <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60">
@@ -137,7 +103,7 @@ const KendoExpandableGrid: React.FC = () => {
         selectable={false}
         onPageChange={onPageChange}
         onSortChange={onSortChange}
-        onFilterChange={onFilterChange}
+        onFilterChange={onFilterChange}       
        >
         {columnsData}
       </Grid>
