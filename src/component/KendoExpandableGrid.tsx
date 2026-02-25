@@ -15,6 +15,7 @@ import { fetchColumnConfig } from '../api/columnApi';
 import { useKendoGridData } from '../hooks/useKendoGridData';
 import EMTDropdown from '../pages/EMTDropdown';
 import { columns } from './internal/ColumnCell';
+import ColorKey from './ColorKey';
 
 const KendoExpandableGrid: React.FC = () => {
   /* ---------- grid data (HOOK) ---------- */
@@ -80,6 +81,7 @@ const KendoExpandableGrid: React.FC = () => {
   return (
     <div className="grid-page w-full h-screen flex flex-col relative ">
       <EMTDropdown />
+      <ColorKey/>
       <CustomToolbar />
 
       {loading && (

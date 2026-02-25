@@ -4,7 +4,8 @@ interface GridItem {
     projectCode: string;
     projectName: string;
     opinion: string;
-    col1: number;
+    col1: string;
+    col1Alt: string;
     col2: number;
     col3: number;
     col4: number;
@@ -20,6 +21,8 @@ interface CollapseInfoProps {
     title: string;
     width: number;
     id: string | number;
+    headerBackgroundColor?: string;
+    textColor?: string;
 }
 
 interface ColumnConfig {
@@ -29,6 +32,10 @@ interface ColumnConfig {
     locked?: boolean;
     blue?: boolean;
     orange?:boolean;
+    bgColorBooleanFalse?: string;
+    bgColorBooleanTrue?: string;
+    headerBackgroundColor?: string;
+    textColor?: string;
     isCollapsible?: boolean;
     collapseInfo?: CollapseInfoProps[];
 }

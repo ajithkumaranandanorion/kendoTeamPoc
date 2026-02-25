@@ -1,14 +1,12 @@
 import { HeaderThElement } from "@progress/kendo-react-data-tools";
 import type { GridCustomHeaderCellProps } from "@progress/kendo-react-grid";
-
-
+import { useKendoContext } from "../../hooks/useKendoContext";
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import IndeterminateCheckBoxOutlinedIcon from '@mui/icons-material/IndeterminateCheckBoxOutlined';
-import { useExpandCollapse } from "../../hooks/useKendoContext";
 
 
 export function HeaderExpandCollapseCell(props: GridCustomHeaderCellProps) {
-    const { expandCollapse, setExpandCollapse } = useExpandCollapse();
+    const { expandCollapse, setExpandCollapse } = useKendoContext();
 
     const handleClick = (e: string) => {
 
@@ -17,7 +15,6 @@ export function HeaderExpandCollapseCell(props: GridCustomHeaderCellProps) {
         })
     }
 
-    // console.log("expandCollapse", expandCollapse)
     return (
         <HeaderThElement columnId={props.thProps?.columnId || ''}   {...props.thProps} style={{
             cursor: "pointer",

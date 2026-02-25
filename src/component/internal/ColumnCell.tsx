@@ -1,32 +1,22 @@
 
-import { GridColumn, type GridCustomCellProps } from "@progress/kendo-react-grid";
+import { GridColumn } from "@progress/kendo-react-grid";
 import type { ColumnConfig } from "../../models/grid.type";
 import { HeaderCustomCell } from "./CustomHeaders";
 import { HeaderExpandCollapseCell } from "./HeaderExpandCollapseCell";
-import { useExpandCollapse } from "../../hooks/useKendoContext";
+import { useKendoContext } from "../../hooks/useKendoContext";
 import CustomFilterCell from "./CustomFilterCell";
 import { CustomColumnMenu } from "../CustomColumnMenu";
+import { CustomColorCodeCell } from "./CustomColorCodeCell";
 
 
-export const CustomColorCodeCell = (props: GridCustomCellProps ) => {
-    const available = !(props.dataItem.col1 > 5);
-    // const noBgr = { backgroundColor: '' };
-    const redBgr = { backgroundColor: 'red' };
-    const customBgr = { backgroundColor: "rgb(152,255,152, 0.3)" };
-    return (
-        <td {...props.tdProps} style={available ? redBgr : customBgr}>
-            {props.children}
-        </td>
-    );
-};
 
 function columns({ baseColumns, processedData }: { baseColumns: ColumnConfig[], processedData: any }) {
     const cols: React.ReactNode[] = [];
 
-    const { expandCollapse } = useExpandCollapse()
-    
+    const { expandCollapse } = useKendoContext()
+
     baseColumns.forEach(col => {
-       
+
         const isExpanded = col?.field != null && typeof col.field !== 'object' && Boolean(expandCollapse[String(col.field)]);
 
         return (
@@ -36,32 +26,48 @@ function columns({ baseColumns, processedData }: { baseColumns: ColumnConfig[], 
                         key={col.field}
                         field={col.field}
                         width={col.width}
-                        cells={{ headerCell: HeaderExpandCollapseCell}}
-                      
+                        locked={col.locked}
+                        cells={{ headerCell: HeaderExpandCollapseCell }}
                         children={[
                             // Base column as JSX
                             <GridColumn
                                 field={col.field}
                                 title={col.title}
                                 width={col.width}
-                                headerClassName={col.blue ? 'blue-header' : col.orange?"orange-header":""}
-                                
+                                locked={col.locked}
+                                headerClassName={col.blue ? 'blue-header' : col.orange ? "orange-header" : ""}
+                                filter={
+                                    typeof processedData?.[0]?.[col.field] === 'number'
+                                        ? 'numeric'
+                                        : 'text'
+                                }
+                                columnMenu={CustomColumnMenu}
                                 cells={{
-                                    filterCell:CustomFilterCell,
-                                    headerCell: HeaderCustomCell,
-                                   data:( (col.field == "col1") ? (CustomColorCodeCell) : undefined) as React.ComponentType<GridCustomCellProps> | undefined
-                                }} />,
+                                    filterCell: CustomFilterCell,
+                                    headerCell: (props) => HeaderCustomCell({ props, columnData: col }),
+                                    data: ((props) => CustomColorCodeCell({ props, columnData: col }))
+                                }}
+                            />,
                             // Dynamic columns as JSX                        
                             ...(isExpanded ?
                                 (col?.collapseInfo ?? []).map((item, i) => (
+                                    //Extra columns generated based on collapseInfo array
                                     <GridColumn
                                         key={`${i}`}
                                         width={item.width}
                                         id={String(item.id)}
                                         field={item?.field ?? `extra ${i}`}
                                         title={item?.title ?? `extra ${i}`}
-                                        headerClassName={col.blue ? 'blue-header-extra' : ''}
-                                           columnMenu={CustomColumnMenu}
+                                        filter={
+                                            typeof processedData?.[0]?.[col.field] === 'number'
+                                                ? 'numeric'
+                                                : 'text'
+                                        }
+                                        // cells={{
+                                        //     headerCell: (props) => HeaderCustomCell({ props, columnData: col }),
+                                        // }}
+                                        locked={col.locked}
+                                        columnMenu={CustomColumnMenu}
                                     />
                                 )) : []
                             )
@@ -80,14 +86,18 @@ function columns({ baseColumns, processedData }: { baseColumns: ColumnConfig[], 
                                 field={col.field}
                                 title={col.title}
                                 width={col.width}
-                                sortable           
-                                headerClassName={col.blue ? 'blue-header' : ''}
+                                sortable
                                 filter={
                                     typeof processedData?.[0]?.[col.field] === 'number'
                                         ? 'numeric'
                                         : 'text'
                                 }
+
                                 columnMenu={CustomColumnMenu}
+                                cells={{
+                                    headerCell: (props) => HeaderCustomCell({ props, columnData: col }),
+                                    data: ((props) => CustomColorCodeCell({ props, columnData: col }))
+                                }}
                             />]}
                     />
                 ))

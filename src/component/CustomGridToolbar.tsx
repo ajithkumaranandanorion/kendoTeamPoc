@@ -1,8 +1,13 @@
 import DownloadIcon from '@mui/icons-material/Download';
-import SaveIcon from '@mui/icons-material/Save';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
+import { useKendoContext } from '../hooks/useKendoContext';
 
 export const CustomToolbar = () => {
+  const { percentageToggle, setPercentageToggle } = useKendoContext();
+  const handlePercentageToggle = (e: React.MouseEvent<HTMLLabelElement>) => {
+    const input = e.target as HTMLInputElement;  
+    setPercentageToggle(input.checked);
+  };
+
   return (
     <div className="flex items-center justify-between  bg-gray-100 px-2 py-1 text-sm border-b border-gray-300 mt-5">
 
@@ -15,31 +20,14 @@ export const CustomToolbar = () => {
           <span>Export</span>
         </div>
 
-        {/* Save Changes */}
-        <div className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer">
-          <SaveIcon sx={{ fontSize: 16 }} />
-          <span>Save Changes</span>
-        </div>
 
-        {/* Red at Check-in date */}
-        <div className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer">
-          <AutorenewIcon sx={{ fontSize: 16 }} />
-          <span>Red at Check-in date</span>
-        </div>
+   
 
         {/* Checkboxes */}
-        <label className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer">
-          <input type="checkbox" className="accent-blue-600" />
-          <span>Show Only Monitored Opinions</span>
-        </label>
+    
 
-        <label className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer">
-          <input type="checkbox" defaultChecked className="accent-blue-600" />
-          <span>Show Only Engagements</span>
-        </label>
-
-        <label className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer">
-          <input type="checkbox" defaultChecked className="accent-blue-600" />
+        <label className="flex items-center gap-1 rounded border border-gray-300 bg-gray-200 px-2 py-1 cursor-pointer" onClick={(e)=>handlePercentageToggle(e)}>
+          <input type="checkbox" defaultChecked={percentageToggle} className="accent-blue-600" />
           <span>Show As Percentages</span>
         </label>
       </div>
