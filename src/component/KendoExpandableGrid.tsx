@@ -18,7 +18,7 @@ import { columns } from "./internal/ColumnCell";
 import ColorKey from './ColorKey';
 import { ExcelExport } from "@progress/kendo-react-excel-export";
 import { ExcelExportColumn } from "@progress/kendo-react-excel-export";
-import { PDFExport } from "@progress/kendo-react-pdf";
+// import { PDFExport } from "@progress/kendo-react-pdf";
 
 
 const KendoExpandableGrid: React.FC = () => {
@@ -32,7 +32,7 @@ const KendoExpandableGrid: React.FC = () => {
   } = useKendoGridData();
 
   const excelExportRef = useRef<ExcelExport>(null);
-  const pdfExportRef = useRef<PDFExport>(null);
+  // const pdfExportRef = useRef<PDFExport>(null);
 
   /* ---------- UI-only state ---------- */
   const [sort, setSort] = useState<SortDescriptor[]>([]);
@@ -59,9 +59,9 @@ const KendoExpandableGrid: React.FC = () => {
     excelExportRef.current?.save();
   };
 
-  const handlePDFExport = () => {
-    pdfExportRef.current?.save();
-  };
+  // const handlePDFExport = () => {
+  //   pdfExportRef.current?.save();
+  // };
 
   const exportData = useMemo(() => {
     return process(data, {
